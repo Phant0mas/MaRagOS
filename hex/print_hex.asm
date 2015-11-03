@@ -1,18 +1,20 @@
 ; =============================================================================
 ; Copyright (C) 2015 Manolis Fragkiskos Ragkousis -- see LICENSE.TXT
 ; =============================================================================
+;;; expects arg in dx
+        %ifndef PRINT_HEX
+        %define PRINT_HEX
+        %endif
 
-        [org 0x7c00]            ; Tell the assembler where this code will be
-                                ; loaded.
-        
 print_hex:                      
         pusha           
-
-        add cx, 6               ; get past '0x'
+        
+        mov cx, 5               ; start modifying from the last char
+                                ; representing a number and go backwards.
         
 
 print_hex_loop: 
-        cmp dx, 0x0000
+        cmp cx, 1
         je print_hex_exit
         
         mov ax, dx
@@ -35,7 +37,9 @@ print_hex_exit:
         popa
         ret
 
-        %include "print_string.asm"     
+        %ifndef PRINT_STRING
+        %include "../print/print_string.asm"
+        %endif
 
 HEX_TABLE:
         db '0123456789abcdef'

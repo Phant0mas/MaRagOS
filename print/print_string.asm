@@ -11,6 +11,9 @@
 ;;; Return to where the pc pointed to before getting in here.
 ;;; bx contains routine argument
 
+        %ifndef PRINT_STRING 
+        %define PRINT_STRING
+        %endif
 print_string:   
         pusha
         mov ah, 0x0e            
