@@ -2,9 +2,8 @@
 ; Copyright (C) 2015 Manolis Fragkiskos Ragkousis -- see LICENSE.TXT
 ; =============================================================================
 ;;; expects arg in dx
-        %ifndef PRINT_HEX
-        %define PRINT_HEX
-        %endif
+%ifndef PRINT_HEX_16BIT
+%define PRINT_HEX_16BIT
 
 print_hex:                      
         pusha           
@@ -46,3 +45,4 @@ HEX_TABLE:
 HEX_OUT:
         db '0x0000',0
 
+%endif
