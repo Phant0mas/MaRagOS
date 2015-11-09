@@ -14,22 +14,21 @@
 %ifndef PRINT_STRING_16BIT
 %define PRINT_STRING_16BIT
 
+[bits 16]
 print_string:   
         pusha
         mov ah, 0x0e            
         
-compare:    
-        cmp byte [bx], 0 
-        je exit
-        jmp print
-        
-print:  
+print_loop:
         mov al, [bx]
-        int 0x10
-        add bx, 1
-        jmp compare
+        cmp al, 0
+        je print_exit
 
-exit:   
+        int 0x10
+        inc bx
+        jmp print_loop
+
+print_exit:
         popa
         ret
 %endif
