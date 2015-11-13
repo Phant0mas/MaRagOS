@@ -36,9 +36,7 @@ print_hex_exit:
         popa
         ret
 
-        %ifndef PRINT_STRING
-        %include "../print/print_string.asm"
-        %endif
+        %include "print/print_string.asm"
 
 HEX_TABLE:
         db '0123456789abcdef'

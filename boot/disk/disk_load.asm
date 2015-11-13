@@ -31,12 +31,8 @@ disk_error:
         call print_string
         jmp $
 
-        %ifndef PRINT_STRING
-        %include "../print/print_string.asm"
-        %endif
-        %ifndef PRINT_HEX
-        %include "../hex/print_hex.asm"
-        %endif
+        %include "print/print_string.asm"
+        %include "hex/print_hex.asm"
 
 DISK_ERROR_MSG:
         db 'Disk read error!', 0
