@@ -1,4 +1,4 @@
-#MaRagOS
+# MaRagOS
 
 This is a simple operating system I am writing from scratch.
 
@@ -14,12 +14,13 @@ and to run it:
 
     make run
 
-##Dependencies. 
-###Build dependencies
+## Dependencies. 
+### Build dependencies
+
 1) gcc
 2) binutils
 3) nasm
 4) make
 
-###Runtime dependencies
-5) qemu
+### Runtime dependencies
+1) qemu
